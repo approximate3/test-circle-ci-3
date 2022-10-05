@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   mocha:
     docker:
-      - image: cimg/node:18.10.0
+      - image: cimg/node:16.17.0
     steps:
       - checkout
       - run: npm install
