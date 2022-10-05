@@ -3,7 +3,6 @@ jobs:
   mocha:
     docker:
       - image: cimg/node:18.10.0
-    working_directory: ./
     steps:
       - checkout
       - run: npm install
