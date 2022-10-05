@@ -3,6 +3,7 @@ jobs:
   mocha:
     docker:
       - image: cimg/node:16.17.0
+      - ports: 9515:9515
     steps:
       - checkout
       - run: npm install
