@@ -10,7 +10,7 @@ jobs:
       - run: npm run wdio
 
 workflows:
-  version: 2
+  version: 2.1
   build:
     jobs:
       - mocha
