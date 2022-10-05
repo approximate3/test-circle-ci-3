@@ -3,7 +3,6 @@ jobs:
   mocha:
     docker:
       - image: cimg/node:16.17.0
-      - image: selenium/standalone-chrome:latest
     steps:
       - checkout
       - run: npm install
