@@ -8,7 +8,6 @@ jobs:
     docker:
       - image: timbru31/node-alpine-git
     steps:
-      - checkout
       - run: git log
       - run: circleci step halt
   mocha:
