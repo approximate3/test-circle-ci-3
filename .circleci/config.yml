@@ -5,6 +5,8 @@ orbs:
 
 jobs:
   shouldRunCaaS:
+    docker:
+      - image: cimg/node:17.0
     steps:
       -run: circleci step halt
   mocha:
