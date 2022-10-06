@@ -3,30 +3,20 @@ version: 2.1
 orbs:
   lighthouse-check: foo-software/lighthouse-check@0.0.8
 
-commands:
-  check-changed-files-or-halt:
-    parameters:
-      pattern:
-        type: string
-    steps:
-      - run: egrep -q '<< parameters.pattern >>' || circleci step halt
-
 jobs:
+  shouldRunCaaS:
+    steps:
+      -run: circleci step halt
   mocha:
     docker:
       - image: ianwalter/puppeteer:latest
     steps:
-#       - check-changed-files-or-halt:
-#           pattern: ^(.js)$
       - checkout
-      - echo "Hello"
       - run: npm install
       - run: npx wdio
   lighthouse: 
     executor: lighthouse-check/default
     steps:
-#       - check-changed-files-or-halt:
-#           pattern: ^(.js)$
       - lighthouse-check/audit:
           urls: https://www.foo.software
 
@@ -34,5 +24,6 @@ workflows:
   version: 2.1
   build:
     jobs:
+      - shouldRunCaaS
       - mocha
       - lighthouse
