@@ -1,4 +1,8 @@
 version: 2.1
+
+orbs:
+  lighthouse-check: foo-software/lighthouse-check@0.0.8
+
 jobs:
   mocha:
     docker:
@@ -7,9 +11,15 @@ jobs:
       - checkout
       - run: npm install
       - run: npx wdio
+  lighthouse: 
+    executor: lighthouse-check/default
+    steps:
+      - lighthouse-check/audit:
+          urls: https://www.foo.software,https://www.foo.software/contact      
 
 workflows:
   version: 2.1
   build:
     jobs:
       - mocha
+      - lighthouse
