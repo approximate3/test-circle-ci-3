@@ -4,7 +4,7 @@ orbs:
   lighthouse-check: foo-software/lighthouse-check@0.0.8
 
 jobs:
-  run:
+  halting:
     docker:
       - image: timbru31/node-alpine-git
     steps:
@@ -28,6 +28,6 @@ workflows:
   version: 2.1
   build:
     jobs:
-      - run
+      - halting
       - mocha
       - lighthouse
