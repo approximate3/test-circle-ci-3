@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - run: git status
-      - run: circleci step halt
+      - run: exit 1
   mocha:
     docker:
       - image: ianwalter/puppeteer:latest
