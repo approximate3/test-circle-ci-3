@@ -9,7 +9,7 @@ commands:
       pattern:
         type: string
     steps:
-      - run: egrep -q '<< parameters.pattern >>' || circleci step halt
+      - run: echo -q '<< parameters >>' || circleci step halt
 
 jobs:
   mocha:
