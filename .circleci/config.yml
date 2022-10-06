@@ -2,24 +2,36 @@ version: 2.1
 
 orbs:
   lighthouse-check: foo-software/lighthouse-check@0.0.8
-
+  
 jobs:
-  mono:
-    executor: lighthouse-check/default
+
+  git:
     docker:
       - image: timbru31/node-alpine-git
-      - image: ianwalter/puppeteer:latest
     steps:
       - checkout
       - run: git status
+      - run: circleci step halt
+      - run: exit 1
+      
+  mocha:
+    docker:
+      - image: ianwalter/puppeteer:latest
+    steps:
+      - checkout
       - run: npm install
-      - run: npx wdio     
+      - run: npx wdio
+      
+  lighthouse: 
+    executor: lighthouse-check/default
+    steps:
       - lighthouse-check/audit:
-          urls: https://www.foo.software   
-      - run: exit 0
+          urls: https://www.foo.software
 
 workflows:
   version: 2.1
   build:
     jobs:
-      - mono
+      - git
+      - mocha
+      - lighthouse
