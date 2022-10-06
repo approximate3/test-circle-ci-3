@@ -6,9 +6,10 @@ orbs:
 jobs:
   run:
     docker:
-      - image: cimg/node:17.0
+      - image: docker pull timbru31/node-alpine-git
     steps:
       - checkout
+      - git log
       - run: circleci step halt
   mocha:
     docker:
