@@ -9,7 +9,7 @@ commands:
       pattern:
         type: string
     steps:
-      - run: git show -m HEAD --name-only --pretty="" | egrep -q '<< parameters.pattern >>' || circleci step halt
+      - run: circleci step halt
 
 jobs:
   mocha:
