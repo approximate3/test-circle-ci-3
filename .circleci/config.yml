@@ -4,11 +4,12 @@ orbs:
   lighthouse-check: foo-software/lighthouse-check@0.0.8
 
 jobs:
-  shouldRunCaaS:
+  run:
     docker:
       - image: cimg/node:17.0
     steps:
-      -run: circleci step halt
+      - checkout
+      - run: circleci step halt
   mocha:
     docker:
       - image: ianwalter/puppeteer:latest
@@ -26,6 +27,6 @@ workflows:
   version: 2.1
   build:
     jobs:
-      - shouldRunCaaS
+      - run
       - mocha
       - lighthouse
