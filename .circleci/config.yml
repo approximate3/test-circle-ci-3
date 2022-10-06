@@ -2,11 +2,11 @@ version: 2.1
 jobs:
   mocha:
     docker:
-      - image: cimg/node:16.17.0
+      - image: ianwalter/puppeteer:latest
     steps:
       - checkout
       - run: npm install
-      - run: npm run wdio
+      - run: npx wdio
 
 workflows:
   version: 2.1
