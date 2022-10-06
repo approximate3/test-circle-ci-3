@@ -16,16 +16,17 @@ jobs:
     docker:
       - image: ianwalter/puppeteer:latest
     steps:
-      - check-changed-files-or-halt:
-          pattern: ^(.js)$
+#       - check-changed-files-or-halt:
+#           pattern: ^(.js)$
       - checkout
+      - echo " *** << pipeline.trigger_source >>"
       - run: npm install
       - run: npx wdio
   lighthouse: 
     executor: lighthouse-check/default
     steps:
-      - check-changed-files-or-halt:
-          pattern: ^(.js)$
+#       - check-changed-files-or-halt:
+#           pattern: ^(.js)$
       - lighthouse-check/audit:
           urls: https://www.foo.software
 
