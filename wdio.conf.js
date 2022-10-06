@@ -8,9 +8,18 @@ exports.config = {
     ],
     maxInstances: 1,
     capabilities: [{
-        maxInstances: 5,
+        maxInstances: 1,
         browserName: 'chrome',
-        acceptInsecureCerts: true
+        acceptInsecureCerts: true,
+        'goog:chromeOptions': {
+            args: [
+                '--no-sandbox',
+                '--disable-infobars',
+                '--headless',
+                '--disable-gpu',
+                '--window-size=1440,735'
+            ],
+        }
     }],
     logLevel: 'info',
     bail: 0,
@@ -18,7 +27,7 @@ exports.config = {
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
-    services: ['chromedriver'],
+    services: [],
     framework: 'mocha',
     reporters: ['spec'],
     mochaOpts: {
