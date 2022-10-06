@@ -4,7 +4,7 @@ describe('Carousel', async () => {
         await browser.url(`https://caas-chimera.s3.us-west-1.amazonaws.com/carousel/3up/half-card.html`);
         await browser.setTimeout({ 'script': 50000 });
         const title = await $('.consonant-CarouselInfo-collectionTitle').getText();
-        await expect(title).toEqual('Lorem Ipsums');
+        await expect(title).toEqual('Lorem Ipsum');
     });
 
     it('All cards should appear', async () => {
