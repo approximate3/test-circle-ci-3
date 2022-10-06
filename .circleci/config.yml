@@ -15,7 +15,7 @@ jobs:
     executor: lighthouse-check/default
     steps:
       - lighthouse-check/audit:
-          urls: https://www.foo.software,https://www.foo.software/contact      
+          urls: https://www.foo.software 
 
 workflows:
   version: 2.1
