@@ -49,4 +49,4 @@ workflows:
       - git
       - mocha
       - lighthouse
-      -  docs
+      - docs
