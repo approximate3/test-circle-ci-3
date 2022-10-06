@@ -17,7 +17,7 @@ jobs:
       - image: ianwalter/puppeteer:latest
     steps:
       - check-changed-files-or-halt:
-          pattern: js$    
+          pattern: ^(.js)$
       - checkout
       - run: npm install
       - run: npx wdio
@@ -25,7 +25,7 @@ jobs:
     executor: lighthouse-check/default
     steps:
       - check-changed-files-or-halt:
-          pattern: js$
+          pattern: ^(.js)$
       - lighthouse-check/audit:
           urls: https://www.foo.software
 
