@@ -19,7 +19,7 @@ jobs:
 #       - check-changed-files-or-halt:
 #           pattern: ^(.js)$
       - checkout
-      - echo " *** << pipeline.trigger_source >>"
+      - echo "Hello"
       - run: npm install
       - run: npx wdio
   lighthouse: 
